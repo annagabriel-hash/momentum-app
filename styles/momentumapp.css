@@ -1,0 +1,136 @@
+/* || GENERAL STYLES */
+html,
+body,
+main {
+	font-family: -apple-system, BlinkMacSystemFont, "Neue Haas Grotesk Text Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	/* offset-x | offset-y | blur-radius \ color */
+	text-shadow: 0 1px 5px rgb(0, 0, 0 / 10%);
+	height: 100vh;
+	width: 100vw;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3 {
+	display: block;
+	text-align: center;
+}
+section {
+	width: 100%;
+	max-width: 100%;
+}
+form {
+	max-width: 100%;
+}
+/* || TYPOGRAPHY */
+
+h1,
+.h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 500;
+	line-height: 1.2;
+}
+
+h1,
+.h1 {
+	font-size: 3.375rem;
+}
+
+h2,
+.h2 {
+	font-size: 2.25rem;
+}
+
+h3,
+.h3 {
+	font-size: 2.1875rem;
+}
+#time {
+	font-size: 10.5rem;
+}
+
+/* || COLOR STYLES */
+.text-white {
+	color: #fff;
+	text-shadow: 0 1px 5px rgb(255, 255, 255 / 10%);
+}
+
+/* || FORMS */
+form,
+input {
+	/* width | style | color */
+	border: 1px solid #ced4da;
+	border-radius: 0.25rem;
+	/* vertical | horizontal */
+	padding: 0.375rem 0.75rem;
+	width: 100%;
+}
+
+/* || ...Underline effect */
+.input-underline {
+	border: 0;
+	/* width | style | color */
+	border-bottom: 2px solid #fff;
+	display: inline-block;
+	text-align: center;
+}
+
+.input-underline:focus,
+.input-underline:hover {
+	outline: 0;
+}
+
+/* || ...Multi-step form */
+/* || ...Underline input */
+
+/* || COMPONENTS */
+/* || ...Button */
+.btn {
+	/* width | styles | color */
+	border: 1px solid transparent;
+	border-radius: 0.25rem;
+	display: inline-block;
+	font-weight: 400;
+	font-size: 1rem;
+	/* vertical | horizontal */
+	padding: 0.375rem 1.5rem;
+	text-align: center;
+	text-decoration: none;
+	vertical-align: middle;
+	color: black;
+	background-color: #fff;
+}
+/* || ...Pill */
+
+/* || ...Modal */
+
+/* || UTILITIES */
+/* || ...Flex */
+.d-flex {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.d-flex-row {
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+/* || ...Flex */
+#time {
+	display: block;
+	text-align: center;
+}
+
+/* || Top Section */
+#name-top {
+	padding-left: 0.5rem;
+}
