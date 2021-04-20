@@ -1,36 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Momentum App</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <main>
-    <time>8:23 PM</time>
-    <h2>Good evening, <input type="text" value="Anna"></h2>
-    <p>
-      <form action="" method="GET">
-        <label for="name">What's your name?</label>
-        <input type="text">
-      </form>
-    </p>
-    <p>
-      <form action="" method="GET"></form>
-        <label for="main-focus">What's your main focus for today?</label>
-        <input type="text">
-      </form>
-    </p>
-    <a href="" class="btn">Todo</a>
-    <div>
-      <a href="">New Todo</a>
-    </div>
-    <footer>
-      <q>“There are two primary choices in life: to accept conditions as they
-        exist, or accept the responsibility for changing them.”</q>
-    </footer>
-  </main>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Momentum App</title>
+		<link rel="stylesheet" href="styles/reset.css" />
+		<link rel="stylesheet" href="styles/momentumapp.css" />
+	</head>
+	<body style="background-image: url(https://images.unsplash.com/photo-1588392382834-a891154bca4d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1055&q=80); background-size: cover">
+		<main>
+			<!-- Section: Top -->
+			<section>
+				<time id="time" class="text-white">8:23</time>
+				<div class="d-flex d-flex-row">
+					<h2 class="text-white">Good evening,</h2>
+					<span id="name-top" class="text-white h2">Anna.</span>
+				</div>
+			</section>
+			<!-- Section: Main focus -->
+			<section>
+				<div>
+					<label for="input-name" class="h3 text-white">What's your name?</label>
+					<input type="text" class="input-underline text-white" id="input-name" />
+				</div>
+				<div>
+					<label for="main-focus" class="h3 text-white">What's your main focus for today?</label>
+					<input type="text" class="input-underline text-white" id="main-focus" />
+				</div>
+			</section>
+			<!-- Section: To Do -->
+			<section>
+				<a href="" class="btn">Todo</a>
+				<div>
+					<a href="">New Todo</a>
+				</div>
+			</section>
+			<!-- Section: Quote -->
+			<footer>
+				<q>“There are two primary choices in life: to accept conditions as they exist, or accept the responsibility for changing them.”</q>
+			</footer>
+		</main>
+	</body>
 </html>
