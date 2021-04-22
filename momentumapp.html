@@ -7,12 +7,13 @@
 		<title>Momentum App</title>
 		<link rel="stylesheet" href="styles/reset.css" />
 		<link rel="stylesheet" href="styles/momentumapp.css" />
+		<script src="https://kit.fontawesome.com/9017cb5518.js" crossorigin="anonymous"></script>
 	</head>
-	<body style="background-image: url(https://images.unsplash.com/photo-1588392382834-a891154bca4d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1055&q=80); background-size: cover">
+	<body>
 		<main>
 			<!-- Section: Top -->
 			<section>
-				<time id="time" class="text-white">8:23</time>
+				<time id="time" class="text-white">7:33</time>
 				<div class="d-flex d-flex-row">
 					<h2 class="text-white">Good evening,</h2>
 					<span id="name-top" class="text-white h2">Anna.</span>
@@ -20,26 +21,35 @@
 			</section>
 			<!-- Section: Main focus -->
 			<section>
-				<div>
-					<label for="input-name" class="h3 text-white">What's your name?</label>
+				<div style="display: none">
+					<label for="input-name" class="h3 text-white">Hello, What's your name?</label>
 					<input type="text" class="input-underline text-white" id="input-name" />
 				</div>
 				<div>
 					<label for="main-focus" class="h3 text-white">What's your main focus for today?</label>
 					<input type="text" class="input-underline text-white" id="main-focus" />
 				</div>
+				<div class="text-lg">
+					<h3 class="text-white text-upper text-sm">Main focus</h3>
+					<label class="text-white container-custom-checkbox">
+						<input type="checkbox" class="text-white" />
+						<span class="far fa-square text-white custom-checkbox"></span>
+						<span class="text-white custom-checkbox-label">Study</span>
+					</label>
+					<button class="text-white text-sm" id="close">&#10005;</button>
+				</div>
 			</section>
 			<!-- Section: To Do -->
 			<section>
 				<a href="" class="btn">Todo</a>
 				<div>
-					<a href="">New Todo</a>
+					<button class="btn">New To do</button>
 				</div>
 			</section>
-			<!-- Section: Quote -->
-			<footer>
-				<q>“There are two primary choices in life: to accept conditions as they exist, or accept the responsibility for changing them.”</q>
-			</footer>
 		</main>
+		<!-- Section: Quote -->
+		<footer>
+			<q class="text-white">“There are two primary choices in life: to accept conditions as they exist, or accept the responsibility for changing them.”</q>
+		</footer>
 	</body>
 </html>
