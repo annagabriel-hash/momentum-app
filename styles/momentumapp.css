@@ -1,33 +1,44 @@
 /* || GENERAL STYLES */
+
 html,
 body,
 main {
 	font-family: -apple-system, BlinkMacSystemFont, "Neue Haas Grotesk Text Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	/* offset-x | offset-y | blur-radius \ color */
 	text-shadow: 0 1px 5px rgb(0, 0, 0 / 10%);
-	width: 100vw;
 }
 
 html,
 body {
-	height: 100vh;
+	height: 100%;
+	width: 100%;
+	box-sizing: border-box;
+	max-height: 100vh;
+	width: 100vw;
+	position: relative;
 }
 
 body {
-	position: relative;
 	background-image: url(https://images.unsplash.com/photo-1588392382834-a891154bca4d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1055&q=80);
 	background-size: cover;
+	background-repeat: no-repeat;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
 }
 main {
-	position: absolute;
 	top: 15%;
 	box-sizing: border-box;
+	flex-grow: 0.5;
 }
+
 footer {
-	position: absolute;
 	text-align: center;
-	bottom: 3%;
+	width: 100vw;
+	height: 60px;
+	justify-self: flex-end;
 }
+
 h1,
 .h1,
 h2,
@@ -56,6 +67,9 @@ input {
 
 /* || TYPOGRAPHY */
 
+* {
+	color: #222;
+}
 h1,
 .h1,
 h2,
@@ -88,6 +102,9 @@ h3,
 .text-lg {
 	font-size: 2.25rem;
 }
+.text-m {
+	font-size: 1.7rem;
+}
 .text-sm {
 	font-size: 1.23rem;
 }
@@ -103,6 +120,9 @@ h3,
 	text-shadow: 0 1px 5px rgb(255, 255, 255 / 10%);
 }
 
+.text-black {
+	color: rgb(34, 34, 34);
+}
 /* || FORMS */
 form,
 input {
@@ -111,7 +131,11 @@ input {
 	border-radius: 0.25rem;
 	padding-top: 0.375rem;
 }
-
+@media screen and (max-width: 400px) {
+	html {
+		font-size: 11px;
+	}
+}
 /* || ...Underline input */
 .input-underline {
 	border: 0;
@@ -122,6 +146,11 @@ input {
 	text-align: center;
 	font-size: 2.25rem;
 }
+@media screen and (max-width: 400px) {
+	.input-underline {
+		width: 90%;
+	}
+}
 
 .input-underline:focus,
 .input-underline:hover {
@@ -129,22 +158,33 @@ input {
 }
 
 /* || ...Customized checkbox */
+
+/* Create box */
 .container-custom-checkbox {
+	/* set position to relative for absolute position not to go beyond this container */
 	position: relative;
 	display: inline-block;
 	/* to insert custom checkbox */
 	padding-left: calc(1em + 10px);
+	cursor: pointer;
 }
 /* Remove default input */
 .container-custom-checkbox input {
 	position: absolute;
 	display: none;
 }
+
+/* Create border box for the checkbox */
+
 .custom-checkbox {
-	height: 0.9em;
+	/* box-sizing: border-box; */
+	height: 0.6em;
 	position: absolute;
+	top: 0.1em;
 	left: 0;
-	width: 0.9em;
+	width: 0.6em;
+	border: 3px solid whitesmoke;
+	border-radius: 5px;
 }
 
 .custom-checkbox:hover {
@@ -164,10 +204,12 @@ input {
 	text-decoration: line-through;
 }
 
+/* Create custom check */
 .custom-checkbox::after {
 	content: "\2714";
 	position: absolute;
-	left: 6px;
+	top: -0.2em;
+	left: 0.1em;
 	font-size: 0.85em;
 }
 /* || COMPONENTS */
@@ -186,10 +228,30 @@ input {
 	vertical-align: middle;
 	color: black;
 	background-color: #fff;
+	cursor: pointer;
 }
 /* || ...Pill */
-
-/* || ...Modal */
+.btn-pill {
+	border-radius: 16px;
+}
+.btn.color-navy {
+	background-color: darkslategray;
+	color: whitesmoke;
+}
+/* || ...Circle */
+.btn-circle {
+	width: 1.5rem;
+	height: 1.5rem;
+	padding: 0;
+	border-radius: 50%;
+	opacity: 0.5;
+}
+/* || ...Bin */
+.bin {
+	padding: 3px;
+	margin-right: 5px;
+	border-radius: 50%;
+}
 
 /* || UTILITIES */
 /* || ...Flex */
@@ -219,4 +281,126 @@ input {
 /* || MAIN FOCUS */
 #close {
 	margin: auto;
+	background-color: #fff;
+	color: rgb(34, 34, 34);
+	font-size: 0.4em;
+	position: relative;
+	top: -0.375rem;
+}
+
+/* || TO-DO */
+.section-to-do {
+	position: absolute;
+	right: 6px;
+	width: auto;
+	bottom: 50px;
+}
+.to-do {
+	background-color: #fff;
+	display: inline-block;
+	border-radius: 5px;
+}
+.to-do-top h3 {
+	text-align: left;
+	padding-left: 21px;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	color: #222;
+}
+.section-to-do .custom-checkbox {
+	border: 2px solid #777;
+}
+.section-to-do .custom-checkbox:hover {
+	color: #555;
+}
+
+/* Newtodo */
+/* Format for emptytodo */
+.to-do .empty {
+	min-height: 150px;
+	padding: 21px;
+}
+#btn-newtodo {
+	padding: 8px 27px;
+	margin-top: 16px;
+	font-size: 0.9rem;
+}
+/* Format newtodo input area */
+#newToDo {
+	font-size: 0.9rem;
+}
+/* Currenttodolist */
+.todo-items {
+	text-align: left;
+	padding-left: 12px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	display: flex;
+}
+.todo-items .container-custom-checkbox {
+	flex-grow: 1;
+}
+.bin {
+	opacity: 0;
+}
+.todo-items:hover .bin,
+.todo-items:focus .bin {
+	background-color: whitesmoke;
+	opacity: 1;
+	transition: opacity 0.25s ease-in-out;
+}
+
+.to-do-bottom {
+	/* top | horizontal | bottom */
+	padding: 7px 21px 18px;
+}
+
+.section-quote {
+	background-color: #fff;
+	display: block;
+	border-radius: 5px;
+	padding: 8px 27px;
+	margin-top: 16px;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 0.9rem;
+	width: 200px;
+	height: 2em;
+	text-align: left;
+}
+@media (min-width: 425px) {
+	.section-quote {
+		width: 300px;
+		right: 60px;
+	}
+}
+#newQuote {
+	width: 100%;
+}
+/* || FOOTER */
+footer {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+	flex-wrap: nowrap;
+}
+
+footer .quote {
+	display: block;
+	text-align: center;
+	flex-grow: 1;
+}
+
+footer .quote button {
+	margin-left: 10px;
+}
+
+footer .btn-todo {
+	padding-right: 12px;
+	cursor: pointer;
+}
+
+.d-hidden {
+	display: none;
 }
