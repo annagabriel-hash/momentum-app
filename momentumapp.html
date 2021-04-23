@@ -7,49 +7,59 @@
 		<title>Momentum App</title>
 		<link rel="stylesheet" href="styles/reset.css" />
 		<link rel="stylesheet" href="styles/momentumapp.css" />
-		<script src="https://kit.fontawesome.com/9017cb5518.js" crossorigin="anonymous"></script>
 	</head>
 	<body>
 		<main>
 			<!-- Section: Top -->
 			<section>
 				<time id="time" class="text-white">7:33</time>
-				<div class="d-flex d-flex-row">
+				<div class="d-flex d-flex-row tab">
 					<h2 class="text-white">Good evening,</h2>
-					<span id="name-top" class="text-white h2">Anna.</span>
+					<span id="name-top" class="text-white h2"></span>
 				</div>
 			</section>
 			<!-- Section: Main focus -->
 			<section>
-				<div style="display: none">
+				<div class="tab">
 					<label for="input-name" class="h3 text-white">Hello, What's your name?</label>
-					<input type="text" class="input-underline text-white" id="input-name" />
+					<input type="text" class="input-underline text-white" id="input-name" name="input-name" />
 				</div>
-				<div>
+				<div class="tab">
 					<label for="main-focus" class="h3 text-white">What's your main focus for today?</label>
-					<input type="text" class="input-underline text-white" id="main-focus" />
+					<input type="text" class="input-underline text-white" id="main-focus-input" />
 				</div>
-				<div class="text-lg">
+				<div class="text-lg container-checkbox section-main-focus">
 					<h3 class="text-white text-upper text-sm">Main focus</h3>
 					<label class="text-white container-custom-checkbox">
 						<input type="checkbox" class="text-white" />
-						<span class="far fa-square text-white custom-checkbox"></span>
-						<span class="text-white custom-checkbox-label">Study</span>
+						<span class="text-white custom-checkbox"></span>
+						<span class="text-white custom-checkbox-label" id="main-focus-text"></span>
+						<button class="text-white text-sm btn-circle" id="close">&#10005;</button>
 					</label>
-					<button class="text-white text-sm" id="close">&#10005;</button>
 				</div>
 			</section>
 			<!-- Section: To Do -->
-			<section>
-				<a href="" class="btn">Todo</a>
-				<div>
-					<button class="btn">New To do</button>
+			<section class="section-to-do">
+				<div class="to-do">
+					<div class="to-do-top"><h3 class="text-m">Todo</h3></div>
+					<ol class="emptytodo">
+						<li class="empty">Add a todo to get started <br /><button class="btn btn-pill color-navy" id="btn-newtodo">New To do</button></li>
+					</ol>
+					<ol id="list-todo"></ol>
+					<div class="to-do-bottom">
+						<input type="text" name="" id="newToDo" placeholder="New to do" />
+					</div>
 				</div>
+			</section>
+			<section class="section-quote">
+				<input type="text" name="" id="newQuote" placeholder="Enter quote" />
 			</section>
 		</main>
 		<!-- Section: Quote -->
 		<footer>
-			<q class="text-white">“There are two primary choices in life: to accept conditions as they exist, or accept the responsibility for changing them.”</q>
+			<div class="quote"><q class="text-white"></q><button class="text-white btn btn-circle" id="quoteBtn">+</button></div>
+			<button class="btn-todo text-white text-sm" id="todo-app">Todo</button>
 		</footer>
+		<script src="scripts/momentumapp.js"></script>
 	</body>
 </html>
