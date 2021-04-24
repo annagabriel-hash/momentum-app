@@ -10,12 +10,11 @@ main {
 
 html,
 body {
-	height: 100%;
-	width: 100%;
 	box-sizing: border-box;
+	height: 100%;
 	max-height: 100vh;
-	width: 100vw;
 	position: relative;
+	width: 100vw;
 }
 
 body {
@@ -27,16 +26,16 @@ body {
 	justify-content: flex-end;
 }
 main {
-	top: 15%;
 	box-sizing: border-box;
 	flex-grow: 0.5;
+	top: 15%;
 }
 
 footer {
+	justify-self: flex-end;
+	height: 60px;
 	text-align: center;
 	width: 100vw;
-	height: 60px;
-	justify-self: flex-end;
 }
 
 h1,
@@ -164,11 +163,11 @@ input {
 /* Create box */
 .container-custom-checkbox {
 	/* set position to relative for absolute position not to go beyond this container */
-	position: relative;
+	cursor: pointer;
 	display: inline-block;
 	/* to insert custom checkbox */
 	padding-left: calc(1em + 10px);
-	cursor: pointer;
+	position: relative;
 }
 	/* Remove default input */
 	.container-custom-checkbox input {
@@ -180,13 +179,13 @@ input {
 
 	.custom-checkbox {
 		/* box-sizing: border-box; */
+		border: 3px solid whitesmoke;
+		border-radius: 5px;
 		height: 0.6em;
 		position: absolute;
 		top: 0.1em;
 		left: 0;
 		width: 0.6em;
-		border: 3px solid whitesmoke;
-		border-radius: 5px;
 	}
 
 		.custom-checkbox:hover {
@@ -217,9 +216,12 @@ input {
 /* || COMPONENTS */
 /* || ...Button */
 .btn {
+	background-color: #fff;
 	/* width | styles | color */
 	border: 1px solid transparent;
 	border-radius: 0.25rem;
+	color: black;
+	cursor: pointer;
 	display: inline-block;
 	font-weight: 400;
 	font-size: 1rem;
@@ -228,9 +230,6 @@ input {
 	text-align: center;
 	text-decoration: none;
 	vertical-align: middle;
-	color: black;
-	background-color: #fff;
-	cursor: pointer;
 }
 /* || ...Pill */
 	.btn-pill {
@@ -243,32 +242,32 @@ input {
 	}
 /* || ...Circle */
 	.btn-circle {
-		width: 1.5rem;
-		height: 1.5rem;
-		padding: 0;
 		border-radius: 50%;
+		height: 1.5rem;
 		opacity: 0.5;
+		padding: 0;
+		width: 1.5rem;
 	}
 
 /* || ...Bin */
 .bin {
-	padding: 3px;
-	margin-right: 5px;
 	border-radius: 50%;
+	margin-right: 5px;
+	padding: 3px;
 }
 
 /* || UTILITIES */
 /* || ...Flex */
 .d-flex {
+	align-items: center;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
 }
 
 	.d-flex-row {
 		flex-direction: row;
-		justify-content: center;
 		flex-wrap: wrap;
+		justify-content: center;
 	}
 
 /* || ...Flex */
@@ -284,33 +283,33 @@ input {
 
 /* || MAIN FOCUS */
 #close {
-	margin: auto;
 	background-color: #fff;
 	color: rgb(34, 34, 34);
 	font-size: 0.4em;
 	position: relative;
 	top: -0.375rem;
+	margin: auto;
 }
 
 /* || TO-DO */
 .section-to-do {
+	bottom: 50px;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 	position: absolute;
 	right: 8px;
 	width: auto;
-	bottom: 50px;
-	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 	.to-do {
 		background-color: #fff;
-		display: inline-block;
 		border-radius: 5px;
+		display: inline-block;
 	}
 		.to-do-top h3 {
+			color: #222;
 			text-align: left;
 			padding-left: 21px;
 			padding-top: 7px;
 			padding-bottom: 7px;
-			color: #222;
 		}
 		.section-to-do .custom-checkbox {
 			border: 2px solid #777;
@@ -326,9 +325,9 @@ input {
 	padding: 21px;
 }
 #btn-newtodo {
+	font-size: 0.9rem;
 	padding: 8px 27px;
 	margin-top: 16px;
-	font-size: 0.9rem;
 }
 /* Format newtodo input area */
 #newToDo {
@@ -336,11 +335,11 @@ input {
 }
 /* Currenttodolist */
 .todo-items {
+	display: flex;
 	text-align: left;
 	padding-left: 12px;
 	padding-top: 3px;
 	padding-bottom: 3px;
-	display: flex;
 }
 	.todo-items .container-custom-checkbox {
 		flex-grow: 1;
@@ -362,21 +361,21 @@ input {
 
 .section-quote {
 	background-color: #fff;
-	display: block;
 	border-radius: 5px;
-	padding: 8px 27px;
+	display: block;
+	font-size: 0.9rem;
+	height: 2em;
 	margin-top: 16px;
 	margin-left: auto;
 	margin-right: auto;
-	font-size: 0.9rem;
 	width: 200px;
-	height: 2em;
+	padding: 8px 27px;
 	text-align: left;
 }
 	@media (min-width: 425px) {
 		.section-quote {
-			width: 300px;
 			right: 60px;
+			width: 300px;
 		}
 	}
 #newQuote {
@@ -384,11 +383,11 @@ input {
 }
 /* || FOOTER */
 footer {
+	align-items: center;
 	display: flex;
 	flex-direction: row;
-	justify-content: flex-end;
-	align-items: center;
 	flex-wrap: nowrap;
+	justify-content: flex-end;
 }
 
 	footer .quote {
