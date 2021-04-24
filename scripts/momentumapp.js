@@ -25,7 +25,9 @@ const getToDoAppBtn = document.querySelector("#todo-app");
 const getNewQte = document.querySelector("#newQuote");
 const getQteBtn = document.querySelector("#quoteBtn");
 
-/*\
+/* ***************************************************************
+****************************************************************** */
+/*\				
 |*| 				FUNCTIONS
 \*/
 
@@ -119,15 +121,20 @@ function addToDo(newToDo) {
 	document.querySelector("#list-todo").appendChild(newLi);
 }
 
+/* ***************************************************************
+****************************************************************** */
+
 /*\
 |*| 			GENERATE TO HTML
 \*/
 
-/* ********************************
+/* ***********************************
         SHOW/HIDE ELEMENTS UPON LOAD
-***********************************/
+**************************************/
 
 // Hide elements upon load
+// || Section: Time
+getCurrentTime();
 // || Section: Input Name 
 getSections[0].classList.toggle("d-hidden");
 // || Section: Input Main Focus 
@@ -136,8 +143,17 @@ getSections[2].classList.toggle("d-hidden");
 document.querySelector(".section-main-focus").classList.toggle("d-hidden");
 // || Section: To Do App
 document.querySelector(".section-to-do").classList.toggle("d-hidden");
-// || Section: Input Quote
+// || Footer: Input Quote
 getNewQte.parentElement.classList.toggle("d-hidden");
+// || Footer: Quote
+document.querySelector(".quote q").innerText = quotes[randomNum(quotes.length) - 1];
+
+/* ***************************************************************
+****************************************************************** */
+
+/*\
+|*| 			EVENT LISTENER
+\*/
 
 // Upon input of name, main focus will be displayed
 getInputName.addEventListener("change", function () {
@@ -169,25 +185,6 @@ getToDoAppBtn.addEventListener("click", function () {
 	document.querySelector(".section-to-do").classList.toggle("d-hidden");
 });
 
-/* ***********************
-        GENERATE TIME
-**************************/
-// Sets current time upon loading of webpage
-getCurrentTime();
-// Sets current time every minute
-setInterval(() => {
-	getCurrentTime();
-}, 60000);
-/* *******************************
-        GENERATE RANDOM QUOTE
-**********************************/
-// Generate random quote upon loading of webpage
-document.querySelector(".quote q").innerText = quotes[randomNum(quotes.length) - 1];
-
-setInterval(() => {
-	document.querySelector(".quote q").innerText = quotes[randomNum(quotes.length) - 1];
-}, 10000);
-
 // Create new Quote
 getNewQte.addEventListener("change", function () {
 	console.log(getNewQte.value);
@@ -214,3 +211,25 @@ newToDoInput.addEventListener("change", function () {
 	addToDo(newToDoInput.value.trim());
 	newToDoInput.value = "";
 });
+
+/* ***************************************************************
+****************************************************************** */
+
+/*\
+|*| 			HTML LOOPS
+\*/
+
+/* ***********************
+        GENERATE TIME
+**************************/
+// Sets current time every minute
+setInterval(() => {
+	getCurrentTime();
+}, 60000);
+/* *******************************
+        GENERATE RANDOM QUOTE
+**********************************/
+// Generates random quote every minute
+setInterval(() => {
+	document.querySelector(".quote q").innerText = quotes[randomNum(quotes.length) - 1];
+}, 10000);
