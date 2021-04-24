@@ -1,7 +1,12 @@
+/* ***************************************************************
+****************************************************************** */
+
 /*\
 |*| 				VARIABLES
 \*/
 
+/* ***************************************************************
+****************************************************************** */
 const quotes = ["You miss 100% of the shots you don't take.", "No pressure, no diamonds", "Whether you think you can or you think you can't, you're right.", "Live as if you were to die tomorrow. Learn as if you were to live forever.", "That which does not kill us makes us stronger.", "Be yourself; everyone else is already taken.", "Strive not to be a success, but rather to be of value."];
 const toDoItems = [];
 /* ====================
@@ -27,11 +32,15 @@ const getQteBtn = document.querySelector("#quoteBtn");
 
 /* ***************************************************************
 ****************************************************************** */
+
 /*\				
 |*| 				FUNCTIONS
 \*/
 
-// Get current time
+/* ***************************************************************
+****************************************************************** */
+
+// Get current time and input to time section
 function getCurrentTime() {
 	let timeStamp = new Date();
 	timeStampMin = timeStamp.getMinutes();
@@ -50,8 +59,8 @@ function randomNum(arrNum) {
 	return Math.floor(Math.random() * arrNum) + 1;
 }
 
-/* Function for add new quote
-Required arguments:quote string */
+/* Function for add new quote and display in quote section (footer)
+Required arguments: string quote */
 function newQuote(quote) {
 	quotes.push(quote);
 	document.querySelector(".quote q").innerText = quote;
@@ -61,8 +70,8 @@ function newQuote(quote) {
         TO DO
 ******************** */
 
-// Function to remove todo
-
+/* Function to remove todoItems in HTML and in the array
+This removes the todo item from HTML */
 function removeToDo() {
 	// Remove todo div element
 	let removedtoDo = this.parentElement.querySelector(".custom-checkbox-label").innerText;
@@ -70,19 +79,20 @@ function removeToDo() {
 
 	// Remove todo from array
 	let index = toDoItems.indexOf(removedtoDo);
+	// This removes one item from the array based on an index
 	toDoItems.splice(index, 1);
 
-	// Display newtoDo
+	// Displays the newtodo button if there are no todo items
 	if (toDoItems.length === 0) {
 		document.querySelector(".emptytodo").style.display = "block";
 		btnNewToDo.style.visibility = "visible";
 	}
 }
 
+/* Function to adds todoItems in HTML and in the array
+Require arguments: string toDo item */
 function addToDo(newToDo) {
-	/* =========================
-			Add newtodo to array todo list
-	========================= */
+	// Add newtodo to array todo list
 	toDoItems.push(newToDo);
 	document.querySelector(".emptytodo").style.display = "none";
 	/* =========================
@@ -109,15 +119,14 @@ function addToDo(newToDo) {
 	newBin.classList.add("bin");
 	newBin.innerHTML = "&#9986";
 	newBin.addEventListener("click", removeToDo);
-	// Append elements
+	// Append elements to HTML
 	newLi.appendChild(newLbl);
 	newLi.appendChild(newBin);
 	newLbl.appendChild(newInput);
 	newLbl.appendChild(newSpan1);
 	newLbl.appendChild(newSpan2);
-	/* =========================
-			Insert elements to HTML
-	========================= */
+
+	// Insert elements to HTML
 	document.querySelector("#list-todo").appendChild(newLi);
 }
 
@@ -128,13 +137,17 @@ function addToDo(newToDo) {
 |*| 			GENERATE TO HTML
 \*/
 
+/* ***************************************************************
+****************************************************************** */
+
 /* ***********************************
         SHOW/HIDE ELEMENTS UPON LOAD
 **************************************/
 
-// Hide elements upon load
 // || Section: Time
+// Generate time
 getCurrentTime();
+// Hide elements upon loading of webpage
 // || Section: Input Name 
 getSections[0].classList.toggle("d-hidden");
 // || Section: Input Main Focus 
@@ -156,20 +169,23 @@ document.querySelector(".quote q").innerText = quotes[randomNum(quotes.length) -
 |*| 			HTML LOOPS
 \*/
 
+/* ***************************************************************
+****************************************************************** */
+
 /* ***********************
         GENERATE TIME
 **************************/
-// Sets current time every minute
+// Sets current time every 25 seconds
 setInterval(() => {
 	getCurrentTime();
 }, 25000);
 /* *******************************
         GENERATE RANDOM QUOTE
 **********************************/
-// Generates random quote every minute
+// Generates random quote every 20 seconds
 setInterval(() => {
 	document.querySelector(".quote q").innerText = quotes[randomNum(quotes.length) - 1];
-}, 10000);
+}, 20000);
 
 
 /* ***************************************************************
@@ -179,59 +195,76 @@ setInterval(() => {
 |*| 			EVENT LISTENER
 \*/
 
-// Upon input of name, main focus will be displayed
+/* ***************************************************************
+****************************************************************** */
+
+// Upon input and entering of name, input for main focus will be displayed
 getInputName.addEventListener("change", function () {
 	// Display main-focus section
 	for (const element of getSections) {
 		element.classList.toggle("d-hidden");
 	}
+	// Set name to the greeting
 	document.querySelector("#name-top").innerText = `${getInputName.value}.`;
+	// Reset the input name
 	getInputName.value = "";
 	getMainFocusInput.focus();
 });
 
-// Update main focus
+// Upon input of main focus, main focus to do will be displayed
 getMainFocusInput.addEventListener("change", function () {
+	// Hide main focus input
 	document.querySelector(".section-main-focus").classList.toggle("d-hidden");
+	// Set input of main focus to main focus to do
 	getMainFocusText.innerText = getMainFocusInput.value;
+	// Reset the input of main focus
 	getMainFocusInput.value = "";
+	// Display main focus to do
 	getSections[2].classList.toggle("d-hidden");
 });
 
-// Close main focus
+// Upon clicking the main focus exit button, main focus input will be displayed
 getMainFocusClose.addEventListener("click", function () {
+	// Hide main focus to do
 	document.querySelector(".section-main-focus").classList.toggle("d-hidden");
+	// Display main focus input
 	getSections[2].classList.toggle("d-hidden");
 	getMainFocusInput.focus();
 });
 
+// Upon clicking the todo app button, todo app will display
 getToDoAppBtn.addEventListener("click", function () {
 	document.querySelector(".section-to-do").classList.toggle("d-hidden");
 });
 
-// Create new Quote
-getNewQte.addEventListener("change", function () {
-	console.log(getNewQte.value);
-	newQuote(getNewQte.value);
-	getNewQte.value = "";
-	getNewQte.parentElement.classList.toggle("d-hidden");
-});
+// Upon clicking the quote add button, input quote will be displayed
 getQteBtn.addEventListener("click", function () {
+	// Display input quote
 	getNewQte.parentElement.classList.toggle("d-hidden");
 	getNewQte.focus();
+});
+
+// Upon inputing the quote, the quote will be added to the array of quotes and displayed in the quote section (footer)
+getNewQte.addEventListener("change", function () {
+	newQuote(getNewQte.value);
+	// Reset the input quote
+	getNewQte.value = "";
+	// Display quote in the footer area
+	getNewQte.parentElement.classList.toggle("d-hidden");
 });
 
 /* ********************
         TO DO
 ******************** */
-// Focus on new todo
 
+// Upon clicking of the newtodo button, newtodo input element will be focus
 btnNewToDo.addEventListener("click", function () {
 	newToDoInput.focus();
 	btnNewToDo.style.visibility = "hidden";
 });
-
+// Upon input(change and enter) of new to do, newtodo will be displayed and added into array
 newToDoInput.addEventListener("change", function () {
 	addToDo(newToDoInput.value.trim());
+	// Reset input of newtodo
 	newToDoInput.value = "";
 });
