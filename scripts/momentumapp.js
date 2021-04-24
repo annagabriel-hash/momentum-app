@@ -148,6 +148,30 @@ getNewQte.parentElement.classList.toggle("d-hidden");
 // || Footer: Quote
 document.querySelector(".quote q").innerText = quotes[randomNum(quotes.length) - 1];
 
+
+/* ***************************************************************
+****************************************************************** */
+
+/*\
+|*| 			HTML LOOPS
+\*/
+
+/* ***********************
+        GENERATE TIME
+**************************/
+// Sets current time every minute
+setInterval(() => {
+	getCurrentTime();
+}, 25000);
+/* *******************************
+        GENERATE RANDOM QUOTE
+**********************************/
+// Generates random quote every minute
+setInterval(() => {
+	document.querySelector(".quote q").innerText = quotes[randomNum(quotes.length) - 1];
+}, 10000);
+
+
 /* ***************************************************************
 ****************************************************************** */
 
@@ -211,25 +235,3 @@ newToDoInput.addEventListener("change", function () {
 	addToDo(newToDoInput.value.trim());
 	newToDoInput.value = "";
 });
-
-/* ***************************************************************
-****************************************************************** */
-
-/*\
-|*| 			HTML LOOPS
-\*/
-
-/* ***********************
-        GENERATE TIME
-**************************/
-// Sets current time every minute
-setInterval(() => {
-	getCurrentTime();
-}, 60000);
-/* *******************************
-        GENERATE RANDOM QUOTE
-**********************************/
-// Generates random quote every minute
-setInterval(() => {
-	document.querySelector(".quote q").innerText = quotes[randomNum(quotes.length) - 1];
-}, 10000);
