@@ -18,6 +18,8 @@ const getSections = document.querySelectorAll(".tab");
 const newTime = document.getElementById("time");
 // || Section: Input Name 
 const getInputName = document.querySelector("#input-name");
+// || Section: Greeting
+const getGreeting = document.querySelector('#greeting');
 // || Section: Main Focus 
 const getMainFocusInput = document.querySelector("#main-focus-input");
 const getMainFocusText = document.querySelector("#main-focus-text");
@@ -43,13 +45,21 @@ const getQteBtn = document.querySelector("#quoteBtn");
 // Get current time and input to time section
 function getCurrentTime() {
 	let timeStamp = new Date();
-	timeStampMin = timeStamp.getMinutes();
+	let timeStampHr = timeStamp.getHours();
+	let timeStampMin = timeStamp.getMinutes();
+	// This is to convert numbers to 2 digit
 	if (timeStampMin < 10) {
 		timeStampMin = "0" + timeStampMin;
 	}
-	timeStamp = `${timeStamp.getHours()}:${timeStampMin}`;
+	timeStamp = `${timeStampHr}:${timeStampMin}`;
 	// Add timeStamp to html
 	newTime.innerText = timeStamp;
+	// If time is between 13:00 to 18:00, greeting will be Good Afternoon
+	if (timeStampHr > 12 && timeStampHr < 18) {
+		getGreeting.innerText = 'Good afternoon,'}
+	// If time is between 18:00 to 24:00, greeting will be Good Afternoon 
+	if (timeStampHr >= 18 && timeStampHr <= 24) {
+		getGreeting.innerText = 'Good evening,'}
 }
 
 /* Generate random number
@@ -145,20 +155,10 @@ function addToDo(newToDo) {
 **************************************/
 
 // || Section: Time
-// Generate time
+// 		Generate time
 getCurrentTime();
-// Hide elements upon loading of webpage
-// || Section: Input Name 
-getSections[0].classList.toggle("d-hidden");
-// || Section: Input Main Focus 
-getSections[2].classList.toggle("d-hidden");
-// || Section: Main Focus 
-document.querySelector(".section-main-focus").classList.toggle("d-hidden");
-// || Section: To Do App
-document.querySelector(".section-to-do").classList.toggle("d-hidden");
-// || Footer: Input Quote
-getNewQte.parentElement.classList.toggle("d-hidden");
 // || Footer: Quote
+// 		Generate quote
 document.querySelector(".quote q").innerText = quotes[randomNum(quotes.length) - 1];
 
 
