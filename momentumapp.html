@@ -13,8 +13,8 @@
 			<!-- Section: Top -->
 			<section>
 				<time id="time" class="text-white"></time>
-				<div class="d-flex d-flex-row tab">
-					<h2 class="text-white">Good morning,</h2>
+				<div class="d-flex d-flex-row tab d-hidden">
+					<h2 id="greeting" class="text-white">Good morning,</h2>
 					<span id="name-top" class="text-white h2"></span>
 				</div>
 			</section>
@@ -24,11 +24,11 @@
 					<label for="input-name" class="h3 text-white">Hello, what's your name?</label>
 					<input type="text" class="input-underline text-white" id="input-name" name="input-name" />
 				</div>
-				<div class="tab">
+				<div class="tab d-hidden">
 					<label for="main-focus" class="h3 text-white">What's your main focus for today?</label>
 					<input type="text" class="input-underline text-white" id="main-focus-input" />
 				</div>
-				<div class="text-lg container-checkbox section-main-focus">
+				<div class="text-lg container-checkbox section-main-focus d-hidden">
 					<h3 class="text-white text-upper text-sm">Main focus</h3>
 					<label class="text-white container-custom-checkbox">
 						<input type="checkbox" class="text-white" />
@@ -39,7 +39,7 @@
 				</div>
 			</section>
 			<!-- Section: To Do -->
-			<section class="section-to-do">
+			<section class="section-to-do d-hidden">
 				<div class="to-do">
 					<div class="to-do-top"><h3 class="text-m">Todo</h3></div>
 					<ol class="emptytodo">
@@ -51,13 +51,16 @@
 					</div>
 				</div>
 			</section>
-			<section class="section-quote">
+			<section class="section-quote d-hidden">
 				<input type="text" name="" id="newQuote" placeholder="Enter quote" />
 			</section>
 		</main>
 		<!-- Section: Quote -->
 		<footer>
-			<div class="quote"><q class="text-white text-italic"></q><button class="text-white btn btn-circle" id="quoteBtn">+</button></div>
+			<div class="quote">
+				<q class="text-white text-italic"></q>
+				<button class="text-white btn btn-circle" id="quoteBtn">+</button>
+			</div>
 			<button class="btn-todo text-white text-sm" id="todo-app">Todo</button>
 		</footer>
 		<script src="scripts/momentumapp.js"></script>
